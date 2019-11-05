@@ -9,7 +9,6 @@ const TargetSize: React.FC = () => {
   };
 
   const renderRadioButton = (targetType: string): JSX.Element => {
-    // const heading = stanceType.charAt(0).toUpperCase() + stanceType.slice(1);
     return (
       <div className="selectTargetSize">
         <label>
@@ -37,6 +36,8 @@ const TargetSize: React.FC = () => {
         {renderRadioButton('fireOver')}
         {renderRadioButton('running')}
         {renderRadioButton('crouch')}
+        {renderRadioButton('handsKnees')}
+        {renderRadioButton('lowProne')}
       </form>
     </div>
   );

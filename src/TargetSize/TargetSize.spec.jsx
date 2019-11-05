@@ -10,7 +10,7 @@ const targetInputPosition = (wrapper, position) => {
     .at(position);
 };
 
-describe('Stance', () => {
+describe('Target Size', () => {
   const wrapper = shallow(<TargetSize />);
   it('should start with default stance of "standing exposed"', () => {
     expect(targetInputPosition(wrapper, 0).props().checked).toBe(true);
@@ -50,5 +50,15 @@ describe('Stance', () => {
     const crouchButton = targetInputPosition(wrapper, 6);
     crouchButton.simulate('change', { target: { value: 'crouch' } });
     expect(targetInputPosition(wrapper, 6).props().checked).toBe(true);
+  });
+  it('should be possible to change to "hands and knees"', () => {
+    const runningButton = targetInputPosition(wrapper, 7);
+    runningButton.simulate('change', { target: { value: 'handsKnees' } });
+    expect(targetInputPosition(wrapper, 7).props().checked).toBe(true);
+  });
+  it('should be possible to change to "low crouch"', () => {
+    const crouchButton = targetInputPosition(wrapper, 8);
+    crouchButton.simulate('change', { target: { value: 'lowProne' } });
+    expect(targetInputPosition(wrapper, 8).props().checked).toBe(true);
   });
 });
