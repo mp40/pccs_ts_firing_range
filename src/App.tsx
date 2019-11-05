@@ -1,5 +1,7 @@
 import React from 'react';
-import Stance from './Stance'
+import Stance from './Stance';
+import TargetSize from './TargetSize';
+
 import './App.css';
 
 const App: React.FC = () => {
@@ -9,7 +11,8 @@ const App: React.FC = () => {
       <header className="App-header">PCCS Firing Range</header>
       <div className="App-body">
         <div>Content</div>
-          <Stance/>
+          {/* <Stance/> */}
+          <TargetSize />
         </div>
     </div>
   );

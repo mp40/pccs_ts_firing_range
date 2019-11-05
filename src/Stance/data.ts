@@ -1,4 +1,4 @@
-const stanceModifiers = {
+const stanceModifiers: { [key: string]: number } = {
   standing: 0,
   kneeling: 3,
   prone: 6,

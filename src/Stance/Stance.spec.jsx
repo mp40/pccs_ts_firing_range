@@ -29,8 +29,8 @@ describe('Stance', () => {
     expect(stanceInputPosition(wrapper, 2).props().checked).toBe(false);
   });
   it('should be possible to change to "prone"', () => {
-    const kneelingButton = stanceInputPosition(wrapper, 1);
-    kneelingButton.simulate('change', { target: { value: 'prone' } });
+    const proneButton = stanceInputPosition(wrapper, 2);
+    proneButton.simulate('change', { target: { value: 'prone' } });
     expect(stanceInputPosition(wrapper, 0).props().checked).toBe(false);
     expect(stanceInputPosition(wrapper, 1).props().checked).toBe(false);
     expect(stanceInputPosition(wrapper, 2).props().checked).toBe(true);
