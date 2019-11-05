@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 const Stance: React.FC = () => {
   const [stance, setStance] = useState('standing');
+  const [braced, toggleBraced] = useState(false);
 
   const handleStanceChange = (eventValue: string): void => {
     setStance(eventValue);
@@ -30,6 +31,17 @@ const Stance: React.FC = () => {
         {renderRadioButton('standing')}
         {renderRadioButton('kneeling')}
         {renderRadioButton('prone')}
+        <div className="bracedToggle">
+          <label>
+            <span>Braced</span>
+            <input
+              type="checkbox"
+              defaultChecked
+              checked={braced}
+              onClick={(): void => toggleBraced(!braced)}
+            />
+          </label>
+        </div>
       </form>
     </div>
   );

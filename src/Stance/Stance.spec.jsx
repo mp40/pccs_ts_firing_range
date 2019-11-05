@@ -10,6 +10,10 @@ const stanceInputPosition = (wrapper, position) => {
     .at(position);
 };
 
+const bracedInputPosition = wrapper => {
+  return wrapper.find('.bracedToggle').find('input');
+};
+
 describe('Stance', () => {
   const wrapper = shallow(<Stance />);
   it('should start with default stance of "standing"', () => {
@@ -30,5 +34,12 @@ describe('Stance', () => {
     expect(stanceInputPosition(wrapper, 0).props().checked).toBe(false);
     expect(stanceInputPosition(wrapper, 1).props().checked).toBe(false);
     expect(stanceInputPosition(wrapper, 2).props().checked).toBe(true);
+  });
+  it('should have a "Braced" option defaulting to false', () => {
+    expect(bracedInputPosition(wrapper).props().checked).toBe(false);
+  });
+  it('should be possible to check "Braced" option', () => {
+    bracedInputPosition(wrapper).simulate('click');
+    expect(bracedInputPosition(wrapper).props().checked).toBe(true);
   });
 });
