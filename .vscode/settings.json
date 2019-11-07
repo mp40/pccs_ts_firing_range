@@ -11,4 +11,5 @@
           "autoFix": true
         }
       ],
+      "eslint.autoFixOnSave": true,
 }

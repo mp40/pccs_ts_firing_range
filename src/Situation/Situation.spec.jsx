@@ -10,11 +10,23 @@ describe('Situation', () => {
       .find('.hipFire')
       .find('input')
       .simulate('change', { target: { value: true } });
+    expect(
+      wrapper
+        .find('.hipFire')
+        .find('input')
+        .props().checked
+    ).toBe(true);
   });
-  expect(
+  it('should have firing rifle one handed checkbox', () => {
     wrapper
-      .find('.hipFire')
+      .find('.rifleOneHand')
       .find('input')
-      .props().checked
-  ).toBe(true);
+      .simulate('change', { target: { value: true } });
+    expect(
+      wrapper
+        .find('.rifleOneHand')
+        .find('input')
+        .props().checked
+    ).toBe(true);
+  });
 });
