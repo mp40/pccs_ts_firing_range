@@ -53,4 +53,28 @@ describe('Situation', () => {
         .props().checked
     ).toBe(true);
   });
+  it('should have bipod not braced checkbox', () => {
+    wrapper
+      .find('.bipodNotBraced')
+      .find('input')
+      .simulate('change', { target: { value: true } });
+    expect(
+      wrapper
+        .find('.bipodNotBraced')
+        .find('input')
+        .props().checked
+    ).toBe(true);
+  });
+  it('should have bipod checkbox', () => {
+    wrapper
+      .find('.bipodMount')
+      .find('input')
+      .simulate('change', { target: { value: true } });
+    expect(
+      wrapper
+        .find('.bipodMount')
+        .find('input')
+        .props().checked
+    ).toBe(true);
+  });
 });
