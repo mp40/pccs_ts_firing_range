@@ -29,4 +29,28 @@ describe('Situation', () => {
         .props().checked
     ).toBe(true);
   });
+  it('should have firing pistol one handed checkbox', () => {
+    wrapper
+      .find('.pistolOneHand')
+      .find('input')
+      .simulate('change', { target: { value: true } });
+    expect(
+      wrapper
+        .find('.pistolOneHand')
+        .find('input')
+        .props().checked
+    ).toBe(true);
+  });
+  it('should have folding stock not used checkbox', () => {
+    wrapper
+      .find('.foldedStock')
+      .find('input')
+      .simulate('change', { target: { value: true } });
+    expect(
+      wrapper
+        .find('.foldedStock')
+        .find('input')
+        .props().checked
+    ).toBe(true);
+  });
 });

@@ -12,4 +12,5 @@
         }
       ],
       "eslint.autoFixOnSave": true,
+      "prettier.printWidth": 120,
 }
