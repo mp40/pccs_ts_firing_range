@@ -36,9 +36,8 @@ const Stance: React.FC = () => {
             <span>Braced</span>
             <input
               type="checkbox"
-              defaultChecked
               checked={braced}
-              onClick={(): void => toggleBraced(!braced)}
+              onChange={(): void => toggleBraced(!braced)}
             />
           </label>
         </div>

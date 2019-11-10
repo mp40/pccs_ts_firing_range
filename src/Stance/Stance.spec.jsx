@@ -39,7 +39,9 @@ describe('Stance', () => {
     expect(bracedInputPosition(wrapper).props().checked).toBe(false);
   });
   it('should be possible to check "Braced" option', () => {
-    bracedInputPosition(wrapper).simulate('click');
+    bracedInputPosition(wrapper).simulate('change', {
+      target: { value: true }
+    });
     expect(bracedInputPosition(wrapper).props().checked).toBe(true);
   });
 });

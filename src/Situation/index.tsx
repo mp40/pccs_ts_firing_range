@@ -16,14 +16,16 @@ const Situation: React.FC = () => {
     toggleValue: Function
   ): JSX.Element => {
     return (
-      <label className={name}>
-        <span>{situationModifiers[name].heading}</span>
-        <input
-          type="checkbox"
-          checked={stateValue}
-          onChange={(): void => toggleValue(!stateValue)}
-        />
-      </label>
+      <div>
+        <label className={name}>
+          <span>{situationModifiers[name].heading}</span>
+          <input
+            type="checkbox"
+            checked={stateValue}
+            onChange={(): void => toggleValue(!stateValue)}
+          />
+        </label>
+      </div>
     );
   };
 
