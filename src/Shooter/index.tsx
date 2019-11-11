@@ -1,13 +1,41 @@
 import React, { useState } from 'react';
 
-import m1Carbine from './data';
+import { m1Carbine, salMod } from './data';
+
+import './Shooter.css';
 
 const Shooter: React.FC = () => {
   const [level, setLevel] = useState(0);
+  const [aims, selectAims] = useState(0);
+
+  const getAimTimeMod = (index: number): number => {
+    return m1Carbine.aim.mod[index] + salMod[level];
+  };
+
+  const applySelected = (aim: number): string => {
+    return aim === aims ? ' selected' : '';
+  };
 
   return (
     <div>
-      <div>{`Weapon: ${m1Carbine.name}`}</div>
+      <div>
+        <div>{`Weapon: ${m1Carbine.name}`}</div>
+        <div className="aimTime">
+          <div>Select Aim Time</div>
+          {m1Carbine.aim.ac.map((aim, index) => {
+            return (
+              <div
+                className={`aimTimeRow${applySelected(aim)}`}
+                key={aim}
+                onClick={(): void => selectAims(aim)}
+              >
+                <span>{aim}</span>
+                <span>{getAimTimeMod(index)}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
       <div>
         <form>
           <label>

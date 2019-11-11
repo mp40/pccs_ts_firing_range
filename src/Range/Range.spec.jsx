@@ -9,9 +9,7 @@ describe('Range', () => {
     expect(wrapper.find('.rangeDropdown').props().value).toBe(1);
   });
   it('should be possible to change range', () => {
-    wrapper
-      .find('.rangeDropdown')
-      .simulate('change', { target: { value: 11 } });
+    wrapper.find('.rangeDropdown').simulate('change', { target: { value: 11 } });
     expect(wrapper.find('.rangeDropdown').props().value).toBe(11);
   });
 });
