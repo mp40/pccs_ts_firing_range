@@ -16,26 +16,28 @@ const Shooter: React.FC = () => {
     return aim === aims ? ' selected' : '';
   };
 
-  return (
-    <div>
-      <div>
-        <div>{`Weapon: ${m1Carbine.name}`}</div>
-        <div className="aimTime">
-          <div>Select Aim Time</div>
-          {m1Carbine.aim.ac.map((aim, index) => {
-            return (
-              <div
-                className={`aimTimeRow${applySelected(aim)}`}
-                key={aim}
-                onClick={(): void => selectAims(aim)}
-              >
-                <span>{aim}</span>
-                <span>{getAimTimeMod(index)}</span>
-              </div>
-            );
-          })}
-        </div>
+  const renderAimTime = (): JSX.Element => {
+    return (
+      <div className="aimTime">
+        <div>Select Aim Time</div>
+        {m1Carbine.aim.ac.map((aim, index) => {
+          return (
+            <div
+              className={`aimTimeRow${applySelected(aim)}`}
+              key={aim}
+              onClick={(): void => selectAims(aim)}
+            >
+              <span>{aim}</span>
+              <span>{getAimTimeMod(index)}</span>
+            </div>
+          );
+        })}
       </div>
+    );
+  };
+
+  const renderShooterLevel = (): JSX.Element => {
+    return (
       <div>
         <form>
           <label>
@@ -58,6 +60,16 @@ const Shooter: React.FC = () => {
           </label>
         </form>
       </div>
+    );
+  };
+
+  return (
+    <div className="shooterContainer">
+      <div>
+        <div>{`Weapon: ${m1Carbine.name}`}</div>
+        {renderShooterLevel()}
+      </div>
+      {renderAimTime()}
     </div>
   );
 };
