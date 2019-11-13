@@ -18,6 +18,7 @@
 
 .aimTimeRow.selected {
     background-color: #fefdf8;
+    font-weight: 500;
 }
 
 .aimTimeRow > span:nth-of-type(odd){
