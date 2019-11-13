@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { m1Carbine, salMod } from './data';
+import { m1Carbine, salMod, getRecoilRecoveryValue } from './data';
 
 import './Shooter.css';
 
@@ -67,6 +67,10 @@ const Shooter: React.FC = () => {
     <div className="shooterContainer">
       <div>
         <div>{`Weapon: ${m1Carbine.name}`}</div>
+        <div>{`Recoil Recovery: ${getRecoilRecoveryValue(
+          m1Carbine.kd,
+          level
+        )}`}</div>
         {renderShooterLevel()}
       </div>
       {renderAimTime()}

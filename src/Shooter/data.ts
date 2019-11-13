@@ -38,3 +38,41 @@ export const salMod: { [key: number]: number } = {
   4: 10,
   5: 11
 };
+
+// [[KD][Recoil Recovery Values]]
+// const recoilReovery = [
+//   [2,  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],],
+//   [3,  [2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],],
+//   [4,  [2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],],
+//   [5,  [2, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],],
+//   [7,  [3, 2, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],],
+//   [10, [3, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],],
+//   [14, [3, 3, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1],]
+// ];
+
+const recoilRecovery = {
+  kd: [2, 3, 4, 5, 7, 10, 14],
+  recovery: [
+    [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [2, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [2, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    [2, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0],
+    [3, 2, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],
+    [3, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0],
+    [3, 3, 3, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+  ]
+};
+
+export const getRecoilRecoveryValue = (
+  kdValue: number,
+  skillLevel: number
+): number => {
+  if (kdValue === 1 || skillLevel >= 13) {
+    return 0;
+  }
+  return recoilRecovery.recovery.reduce(
+    (result: number, row: number[], index: number): number =>
+      recoilRecovery.kd[index] <= kdValue ? row[skillLevel] : result,
+    0
+  );
+};

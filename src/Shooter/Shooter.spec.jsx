@@ -35,4 +35,12 @@ describe('Shooter', () => {
         .hasClass('selected')
     ).toBe(true);
   });
+  it('should display the weapon recoil recovery', () => {
+    wrapper.find('.selectLevel').simulate('change', { target: { value: 0 } });
+    expect(wrapper.text()).toContain('Recoil Recovery: 2');
+  });
+  it('should update recoil recovery on level change', () => {
+    wrapper.find('.selectLevel').simulate('change', { target: { value: 4 } });
+    expect(wrapper.text()).toContain('Recoil Recovery: 1');
+  });
 });
