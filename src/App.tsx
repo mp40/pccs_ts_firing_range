@@ -15,8 +15,8 @@ const App: React.FC = () => {
       <div className="App-body">
         {/* <Situation /> */}
         {/* <TargetSize /> */}
-        {/* <Shooter /> */}
-        <Range />
+        <Shooter />
+        {/* <Range /> */}
         {/* <Stance /> */}
       </div>
     </div>

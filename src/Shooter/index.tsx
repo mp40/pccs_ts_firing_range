@@ -65,7 +65,7 @@ const Shooter: React.FC = () => {
 
   return (
     <div className="shooterContainer">
-      <div>
+      <div className="shooterDetails">
         <div>{`Weapon: ${m1Carbine.name}`}</div>
         <div>{`Recoil Recovery: ${getRecoilRecoveryValue(
           m1Carbine.kd,
