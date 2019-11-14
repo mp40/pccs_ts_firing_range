@@ -68,6 +68,36 @@ const Shooter: React.FC = () => {
     );
   };
 
+  const renderToggleButton = (typeName: string): JSX.Element => {
+    const handleToggle =
+      typeName === 'level' ? handleToggleLevels : handleToggleAims;
+    return (
+      <button
+        type="button"
+        className={`${getClassName(typeName)} ${typeName}Button`}
+        onClick={(): void => {
+          handleToggle();
+        }}
+      >
+        {`Select ${typeName.charAt(0).toUpperCase() + typeName.slice(1)}`}
+      </button>
+    );
+  };
+
+  const renderSelectionButton = (value: number, type: string): JSX.Element => {
+    const handleSet = type === 'level' ? handleSetLevel : handleSetAim;
+
+    return (
+      <button
+        key={value}
+        className={`${type}Btns`}
+        onClick={(): void => handleSet(value)}
+      >
+        {value}
+      </button>
+    );
+  };
+
   return (
     <div className="shooterContainer">
       <div className="shooterDetailsContainer">
@@ -78,24 +108,8 @@ const Shooter: React.FC = () => {
             level
           )}`}</div>
           <div>{`Shooter Level: ${level}`}</div>
-          <button
-            type="button"
-            className={`${getClassName('level')} levelButton`}
-            onClick={(): void => {
-              handleToggleLevels();
-            }}
-          >
-            Select Level
-          </button>
-          <button
-            type="button"
-            className={`${getClassName('aim')} aimButton`}
-            onClick={(): void => {
-              handleToggleAims();
-            }}
-          >
-            Select Aims
-          </button>
+          {renderToggleButton('level')}
+          {renderToggleButton('aim')}
         </div>
         {renderAimTime()}
       </div>
@@ -103,27 +117,11 @@ const Shooter: React.FC = () => {
       <div className="selectPanel">
         {showLevels &&
           [0, 1, 2, 3, 4, 5].map(lvl => {
-            return (
-              <button
-                key={lvl}
-                className="levelBtns"
-                onClick={(): void => handleSetLevel(lvl)}
-              >
-                {lvl}
-              </button>
-            );
+            return renderSelectionButton(lvl, 'level');
           })}
         {showAims &&
           m1Carbine.aim.ac.map(aimCount => {
-            return (
-              <button
-                key={aimCount}
-                className="aimBtns"
-                onClick={(): void => handleSetAim(aimCount)}
-              >
-                {aimCount}
-              </button>
-            );
+            return renderSelectionButton(aimCount, 'aim');
           })}
       </div>
     </div>
