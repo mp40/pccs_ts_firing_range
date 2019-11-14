@@ -1,17 +1,25 @@
 .shooterContainer {
-    display: flex;
-    justify-content: space-between;
     width: 21rem;
     margin: 0 auto;
     padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.shooterDetailsContainer {
+    display: flex;
+    justify-content: space-between;
 }
 
 .shooterDetails {
     font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
 }
 
 .shooterDetails > div {
-    margin-bottom: .5rem;;
+    margin-bottom: .5rem;
 }
 
 .aimTime {
@@ -19,11 +27,6 @@
     flex-direction: column;
     border: 1.2px solid #252b2b;
     width: 5rem;
-}
-
-.aimTimeRow:hover {
-    color: black;
-    background-color: #fff;
 }
 
 .aimTimeRow.selected {
@@ -39,4 +42,35 @@
 .aimTimeRow > span:nth-of-type(even){
     float: right;
     padding-right: .5rem;
+}
+
+.shooterButton {
+    background-color: #fefdf8;
+    border-radius: 3px;
+    font-size: 1.5rem;
+    padding: .7rem;
+}
+
+.shooterButton.disabled {
+    opacity: .4;
+}
+
+.selectPanel {
+    padding-top: 1rem;
+}
+
+.levelBtns {
+    background-color: #fefdf8;
+    border-radius: 3px;
+    font-size: 1.5rem;
+    padding: .7rem;
+    width: 33%;
+}
+
+.aimBtns {
+    background-color: #fefdf8;
+    border-radius: 3px;
+    font-size: 1.5rem;
+    padding: .7rem;
+    width: 33%;
 }
