@@ -1,9 +1,15 @@
 .shooterContainer {
-    width: 21rem;
     margin: 0 auto;
-    padding-top: 1rem;
+    padding: 1rem 2rem 0;
     display: flex;
     flex-direction: column;
+}
+
+.shooterContainer * button {
+    background-color: #fefdf8;
+    border-radius: 3px;
+    font-size: 1.5rem;
+    padding: .7rem;
 }
 
 .shooterDetailsContainer {
@@ -16,6 +22,7 @@
     display: flex;
     flex-direction: column;
     align-items: start;
+    justify-content: space-between;
 }
 
 .shooterDetails > div {
@@ -45,10 +52,7 @@
 }
 
 .shooterButton {
-    background-color: #fefdf8;
-    border-radius: 3px;
-    font-size: 1.5rem;
-    padding: .7rem;
+    width: 100%;
 }
 
 .shooterButton.disabled {
@@ -59,18 +63,7 @@
     padding-top: 1rem;
 }
 
-.levelBtns {
-    background-color: #fefdf8;
-    border-radius: 3px;
-    font-size: 1.5rem;
-    padding: .7rem;
-    width: 33%;
-}
-
+.levelBtns,
 .aimBtns {
-    background-color: #fefdf8;
-    border-radius: 3px;
-    font-size: 1.5rem;
-    padding: .7rem;
     width: 33%;
 }
