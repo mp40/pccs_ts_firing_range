@@ -6,10 +6,14 @@ import Range from './index';
 describe('Range', () => {
   const wrapper = shallow(<Range />);
   it('should start with a default range of 1', () => {
-    expect(wrapper.find('.rangeDropdown').props().value).toBe(1);
+    expect(wrapper.text()).toContain('Current Range: 1');
   });
   it('should be possible to change range', () => {
-    wrapper.find('.rangeDropdown').simulate('change', { target: { value: 11 } });
-    expect(wrapper.find('.rangeDropdown').props().value).toBe(11);
+    wrapper.find('.toggleSelectRange').simulate('click');
+    wrapper
+      .find('.rangeButton')
+      .at(9)
+      .simulate('click');
+    expect(wrapper.text()).toContain('Current Range: 11');
   });
 });
