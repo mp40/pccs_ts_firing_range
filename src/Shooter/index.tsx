@@ -1,22 +1,27 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 
 import { m1Carbine, salMod, getRecoilRecoveryValue } from './data';
 
 import './Shooter.css';
 
-const Shooter: React.FC = () => {
-  const [level, setLevel] = useState(0);
-  const [aims, selectAims] = useState(1);
+type Props = {
+  level: number;
+  aims: number;
+  handleUpdateStateValue: Function;
+};
+
+const Shooter: React.FC<Props> = ({ level, aims, handleUpdateStateValue }) => {
   const [showLevels, toggleShowLevels] = useState(false);
   const [showAims, toggleShowAims] = useState(false);
 
   const handleSetLevel = (lvl: number): void => {
-    setLevel(lvl);
+    handleUpdateStateValue('level', lvl);
     toggleShowLevels(false);
   };
 
   const handleSetAim = (aimCount: number): void => {
-    selectAims(aimCount);
+    handleUpdateStateValue('aims', aimCount);
     toggleShowAims(false);
   };
 

@@ -51,9 +51,12 @@ describe('the App pages', () => {
   });
 });
 
-describe('data retention while navigating between the App pages', () => {
-  const wrapper = shallow(<App />);
-  it('should keep', () => {
-    // console.log(wrapper.props());
-  });
-});
+// describe('data retention while navigating between the App pages', () => {
+//   let wrapper;
+//   beforeEach(() => {
+//     wrapper = shallow(<App />);
+//   });
+//   it('should keep', () => {
+//     console.log(wrapper.state());
+//   });
+// });
