@@ -14,9 +14,6 @@ type State = {
   aims: number;
 };
 
-// const [level, setLevel] = useState(0);
-// const [aims, selectAims] = useState(1);
-
 type Props = {
   // handleUpdatePage: Function;
 };
@@ -46,7 +43,6 @@ class App extends Component<Props, State> {
 
   render(): JSX.Element {
     const { page, level, aims } = this.state;
-    // const { handleUpdatePage } = this.props;
     return (
       <div className="App">
         <header className="App-header">

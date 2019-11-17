@@ -5,8 +5,16 @@ import Shooter from './index';
 
 describe('Shooter', () => {
   let wrapper;
+  const handleUpdateStateValue = jest.fn();
   beforeEach(() => {
-    wrapper = shallow(<Shooter />);
+    wrapper = shallow(
+      <Shooter
+        level={0}
+        aims={1}
+        handleUpdateStateValue={handleUpdateStateValue}
+      />
+    );
+    handleUpdateStateValue.mockClear();
   });
   it('should start displaying M1 Carbine as default weapon', () => {
     expect(wrapper.text()).toContain('M1 Carbine');
@@ -24,14 +32,10 @@ describe('Shooter', () => {
       .find('.levelBtns')
       .at(4)
       .simulate('click');
-    expect(wrapper.text()).toContain('Shooter Level: 4');
+    expect(handleUpdateStateValue).toHaveBeenCalledWith('level', 4);
   });
   it('should update aim time mod when level is changed', () => {
-    wrapper.find('.levelButton').simulate('click');
-    wrapper
-      .find('.levelBtns')
-      .at(4)
-      .simulate('click');
+    wrapper = shallow(<Shooter level={4} />);
     expect(wrapper.find('.aimTime').text()).toContain('1-11');
     expect(wrapper.find('.aimTime').text()).toContain('1110');
   });
@@ -41,22 +45,13 @@ describe('Shooter', () => {
       .find('.aimBtns')
       .at(2)
       .simulate('click');
-    expect(
-      wrapper
-        .find('.aimTimeRow')
-        .at(2)
-        .hasClass('selected')
-    ).toBe(true);
+    expect(handleUpdateStateValue).toHaveBeenLastCalledWith('aims', 3);
   });
   it('should display the weapon recoil recovery', () => {
     expect(wrapper.text()).toContain('Recoil Recovery: 2');
   });
   it('should update recoil recovery on level change', () => {
-    wrapper.find('.levelButton').simulate('click');
-    wrapper
-      .find('.levelBtns')
-      .at(4)
-      .simulate('click');
+    wrapper = shallow(<Shooter level={4} />);
     expect(wrapper.text()).toContain('Recoil Recovery: 1');
   });
   it('should not be possible to toggle aim selection on when level selection is toggled', () => {
