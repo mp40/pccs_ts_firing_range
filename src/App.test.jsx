@@ -51,12 +51,63 @@ describe('the App pages', () => {
   });
 });
 
-// describe('data retention while navigating between the App pages', () => {
-//   let wrapper;
-//   beforeEach(() => {
-//     wrapper = shallow(<App />);
-//   });
-//   it('should keep', () => {
-//     console.log(wrapper.state());
-//   });
-// });
+describe('using page one', () => {
+  const wrapper = mount(<App />);
+  it('should be possible to select level', () => {
+    wrapper.find('.levelButton').simulate('click');
+    wrapper
+      .find('.levelBtns')
+      .at(3)
+      .simulate('click');
+    expect(wrapper.text()).toContain('Shooter Level: 3');
+  });
+  it('should be possible to select aims', () => {
+    wrapper.find('.aimButton').simulate('click');
+    wrapper
+      .find('.aimBtns')
+      .at(2)
+      .simulate('click');
+    expect(
+      wrapper
+        .find('.aimTimeRow')
+        .at(2)
+        .hasClass('selected')
+    ).toBe(true);
+  });
+  it('should be possible to go to next page', () => {
+    wrapper.find('.nextPage').simulate('click');
+    expect(wrapper.text()).toContain('Current Range: 1');
+  });
+  it('should be possible to go back to page one without losing choices', () => {
+    wrapper.find('.prevPage').simulate('click');
+    expect(wrapper.text()).toContain('Shooter Level: 3');
+    expect(
+      wrapper
+        .find('.aimTimeRow')
+        .at(2)
+        .hasClass('selected')
+    ).toBe(true);
+  });
+});
+
+describe('using page two', () => {
+  const wrapper = mount(<App />);
+  const page = 2;
+  wrapper.setState({ page });
+  it('should be possible to select range', () => {
+    wrapper.find('.toggleSelectRange').simulate('click');
+    wrapper
+      .find('.rangeButton')
+      .at(4)
+      .simulate('click');
+    expect(wrapper.text()).toContain('Current Range: 5');
+  });
+  it('should be possible to go to next page', () => {
+    wrapper.find('.nextPage').simulate('click');
+    expect(wrapper.text()).toContain('StandingKneelingProneBraced');
+  });
+  it('should be possible to go back to page one without losing choices', () => {
+    wrapper.find('.prevPage').simulate('click');
+    expect(wrapper.text()).toContain('Current Range: 5');
+  });
+});

@@ -4,12 +4,16 @@ import rangeTable from './data';
 
 import './Range.css';
 
-const Range: React.FC = () => {
-  const [range, setRange] = useState(1);
+type Props = {
+  range: number;
+  handleUpdateStateValue: Function;
+};
+
+const Range: React.FC<Props> = ({ range, handleUpdateStateValue }) => {
   const [showRanges, toggleShowRanges] = useState(false);
 
   const handleRangeUpdate = (rng: number): void => {
-    setRange(rng);
+    handleUpdateStateValue('range', rng);
     toggleShowRanges(false);
   };
 

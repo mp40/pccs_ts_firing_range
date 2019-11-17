@@ -12,6 +12,7 @@ type State = {
   page: number;
   level: number;
   aims: number;
+  range: number;
 };
 
 type Props = {
@@ -22,7 +23,8 @@ class App extends Component<Props, State> {
   state: State = {
     page: 1,
     level: 0,
-    aims: 1
+    aims: 1,
+    range: 1
   };
 
   handleUpdatePage = (value: number): void => {
@@ -42,7 +44,7 @@ class App extends Component<Props, State> {
   };
 
   render(): JSX.Element {
-    const { page, level, aims } = this.state;
+    const { page, level, aims, range } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -70,7 +72,12 @@ class App extends Component<Props, State> {
               handleUpdateStateValue={this.handleUpdateStateValue}
             />
           )}
-          {page === 2 && <Range />}
+          {page === 2 && (
+            <Range
+              range={range}
+              handleUpdateStateValue={this.handleUpdateStateValue}
+            />
+          )}
           {page === 3 && <Stance />}
           {page === 4 && <Situation />}
           {page === 5 && <TargetSize />}

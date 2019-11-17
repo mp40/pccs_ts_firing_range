@@ -4,7 +4,10 @@ import { shallow } from 'enzyme';
 import Range from './index';
 
 describe('Range', () => {
-  const wrapper = shallow(<Range />);
+  const handleUpdateStateValue = jest.fn();
+  const wrapper = shallow(
+    <Range range={1} handleUpdateStateValue={handleUpdateStateValue} />
+  );
   it('should start with a default range of 1', () => {
     expect(wrapper.text()).toContain('Current Range: 1');
   });
@@ -14,6 +17,6 @@ describe('Range', () => {
       .find('.rangeButton')
       .at(9)
       .simulate('click');
-    expect(wrapper.text()).toContain('Current Range: 11');
+    expect(handleUpdateStateValue).toHaveBeenLastCalledWith('range', 11);
   });
 });
