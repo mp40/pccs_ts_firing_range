@@ -27,7 +27,10 @@ const Stance: React.FC = () => {
           className={`toggleStance${getActiveStanceClassName(stanceType)}`}
           onClick={(): void => handleStanceChange(stanceType)}
         >
-          {`${heading}:`}
+          <span>{`${heading}:`}</span>
+          <span className="stanceCircle">
+            <span className="inner"></span>
+          </span>
         </button>
       </div>
     );

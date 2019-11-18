@@ -16,14 +16,34 @@
     height: 3rem;
 }
 
-.toggleStance:after,
 .toggleBraced:after {
     content: " \2716";
-    color: red;
+    color: #b6b9bb;
 }
 
-.toggleStance.active:after,
 .toggleBraced.active:after {
     content: " \2714";
-    color: green;
+    color: #718d4d;
+}
+
+.stanceCircle {
+    height: 1rem;
+    width: 1rem;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    border: 3px solid #b6b9bb;
+    position: relative;
+}
+
+.toggleStance.active > .stanceCircle > .inner {
+    height: .8rem;
+    width: .8rem;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #718d4d;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
