@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './Stance.css';
 
-const Stance: React.FC = () => {
-  const [stance, setStance] = useState('standing');
-  const [braced, toggleBraced] = useState(false);
+type Props = {
+  stance: string;
+  braced: boolean;
+  handleUpdateStateValue: Function;
+};
 
+const Stance: React.FC<Props> = ({
+  stance,
+  braced,
+  handleUpdateStateValue
+}) => {
   const getBracedClassName = (): string => {
     return braced ? 'toggleBraced active' : 'toggleBraced';
   };
 
   const getActiveStanceClassName = (name: string): string => {
     return stance === name ? ' active' : '';
-  };
-
-  const handleStanceChange = (eventValue: string): void => {
-    setStance(eventValue);
   };
 
   const renderRadioButton = (stanceType: string): JSX.Element => {
@@ -25,7 +28,7 @@ const Stance: React.FC = () => {
         <button
           type="button"
           className={`toggleStance${getActiveStanceClassName(stanceType)}`}
-          onClick={(): void => handleStanceChange(stanceType)}
+          onClick={(): void => handleUpdateStateValue('stance', stanceType)}
         >
           <span>{`${heading}:`}</span>
           <span className="stanceCircle">
@@ -45,7 +48,7 @@ const Stance: React.FC = () => {
         <button
           type="button"
           className={getBracedClassName()}
-          onClick={(): void => toggleBraced(!braced)}
+          onClick={(): void => handleUpdateStateValue('braced', !braced)}
         >
           Braced:
         </button>
