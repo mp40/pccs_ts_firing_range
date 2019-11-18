@@ -23,7 +23,7 @@
 
 .toggleBraced.active:after {
     content: " \2714";
-    color: #718d4d;
+    color: #bed264;
 }
 
 .stanceCircle {
@@ -32,8 +32,10 @@
     background-color: #fff;
     border-radius: 50%;
     display: inline-block;
-    border: 3px solid #b6b9bb;
     position: relative;
+    -webkit-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.8);
+    -moz-box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.8);
+    box-shadow: inset 0px 0px 3px 0px rgba(0,0,0,0.8);
 }
 
 .toggleStance.active > .stanceCircle > .inner {
@@ -41,9 +43,13 @@
     width: .8rem;
     border-radius: 50%;
     display: inline-block;
-    background-color: #718d4d;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background: rgb(190,210,100);
+    background: -moz-radial-gradient(circle, rgba(190,210,100,1) 0%, rgba(85,103,63,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(190,210,100,1) 0%, rgba(85,103,63,1) 100%);
+    background: radial-gradient(circle, rgba(190,210,100,1) 0%, rgba(85,103,63,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#bed264",endColorstr="#55673f",GradientType=1);
 }
