@@ -24,3 +24,12 @@
   font-size: calc(10px + 1vmin);
   color: #252b2b;
 }
+
+.navBtn {
+  color: #eee9e3;
+  font-size: 3.5rem;
+}
+
+.prevPage {
+  transform: rotate(180deg);
+}
