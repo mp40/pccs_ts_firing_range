@@ -104,7 +104,7 @@ describe('using page two', () => {
   });
   it('should be possible to go to next page', () => {
     wrapper.find('.nextPage').simulate('click');
-    expect(wrapper.text()).toContain('StandingKneelingProneBraced');
+    expect(wrapper.text()).toContain('Standing:Kneeling:Prone:Braced:');
   });
   it('should be possible to go back to page one without losing choices', () => {
     wrapper.find('.prevPage').simulate('click');

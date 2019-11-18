@@ -3,45 +3,40 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Stance from './index';
 
-const stanceInputPosition = (wrapper, position) => {
-  return wrapper
-    .find('.stanceSelectForm')
-    .find('input')
-    .at(position);
+const stanceInputButton = (wrapper, position) => {
+  return wrapper.find('.toggleStance').at(position);
 };
 
 const bracedInputPosition = wrapper => {
-  return wrapper.find('.bracedToggle').find('input');
+  return wrapper.find('.bracedToggle').find('button');
 };
 
 describe('Stance', () => {
   const wrapper = shallow(<Stance />);
   it('should start with default stance of "standing"', () => {
-    expect(stanceInputPosition(wrapper, 0).props().checked).toBe(true);
-    expect(stanceInputPosition(wrapper, 1).props().checked).toBe(false);
-    expect(stanceInputPosition(wrapper, 2).props().checked).toBe(false);
+    expect(stanceInputButton(wrapper, 0).hasClass('active')).toBe(true);
+    expect(stanceInputButton(wrapper, 1).hasClass('active')).toBe(false);
+    expect(stanceInputButton(wrapper, 2).hasClass('active')).toBe(false);
   });
   it('should be possible to change to "kneeling"', () => {
-    const kneelingButton = stanceInputPosition(wrapper, 1);
-    kneelingButton.simulate('change', { target: { value: 'kneeling' } });
-    expect(stanceInputPosition(wrapper, 0).props().checked).toBe(false);
-    expect(stanceInputPosition(wrapper, 1).props().checked).toBe(true);
-    expect(stanceInputPosition(wrapper, 2).props().checked).toBe(false);
+    const kneelingButton = stanceInputButton(wrapper, 1);
+    kneelingButton.simulate('click');
+    expect(stanceInputButton(wrapper, 0).hasClass('active')).toBe(false);
+    expect(stanceInputButton(wrapper, 1).hasClass('active')).toBe(true);
+    expect(stanceInputButton(wrapper, 2).hasClass('active')).toBe(false);
   });
   it('should be possible to change to "prone"', () => {
-    const proneButton = stanceInputPosition(wrapper, 2);
-    proneButton.simulate('change', { target: { value: 'prone' } });
-    expect(stanceInputPosition(wrapper, 0).props().checked).toBe(false);
-    expect(stanceInputPosition(wrapper, 1).props().checked).toBe(false);
-    expect(stanceInputPosition(wrapper, 2).props().checked).toBe(true);
+    const proneButton = stanceInputButton(wrapper, 2);
+    proneButton.simulate('click');
+    expect(stanceInputButton(wrapper, 0).hasClass('active')).toBe(false);
+    expect(stanceInputButton(wrapper, 1).hasClass('active')).toBe(false);
+    expect(stanceInputButton(wrapper, 2).hasClass('active')).toBe(true);
   });
   it('should have a "Braced" option defaulting to false', () => {
-    expect(bracedInputPosition(wrapper).props().checked).toBe(false);
+    expect(bracedInputPosition(wrapper).hasClass('active')).toBe(false);
   });
   it('should be possible to check "Braced" option', () => {
-    bracedInputPosition(wrapper).simulate('change', {
-      target: { value: true }
-    });
-    expect(bracedInputPosition(wrapper).props().checked).toBe(true);
+    bracedInputPosition(wrapper).simulate('click');
+    expect(bracedInputPosition(wrapper).hasClass('active')).toBe(true);
   });
 });

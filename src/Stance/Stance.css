@@ -1,0 +1,29 @@
+.stanceContainer {
+    padding: 1rem 3rem 0;
+}
+
+.bracedToggle {
+    display: flex;
+    justify-content: center;
+}
+
+.toggleStance,
+.toggleBraced {
+    background-color: #fefdf8;
+    border-radius: 3px;
+    font-size: 1.5rem;
+    width: 10rem;
+    height: 3rem;
+}
+
+.toggleStance:after,
+.toggleBraced:after {
+    content: " \2716";
+    color: red;
+}
+
+.toggleStance.active:after,
+.toggleBraced.active:after {
+    content: " \2714";
+    color: green;
+}

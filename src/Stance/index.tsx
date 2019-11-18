@@ -1,8 +1,18 @@
 import React, { useState } from 'react';
 
+import './Stance.css';
+
 const Stance: React.FC = () => {
   const [stance, setStance] = useState('standing');
   const [braced, toggleBraced] = useState(false);
+
+  const getBracedClassName = (): string => {
+    return braced ? 'toggleBraced active' : 'toggleBraced';
+  };
+
+  const getActiveStanceClassName = (name: string): string => {
+    return stance === name ? ' active' : '';
+  };
 
   const handleStanceChange = (eventValue: string): void => {
     setStance(eventValue);
@@ -12,36 +22,31 @@ const Stance: React.FC = () => {
     const heading = stanceType.charAt(0).toUpperCase() + stanceType.slice(1);
     return (
       <div className="stanceSelect">
-        <label>
-          <span>{heading}</span>
-          <input
-            type="radio"
-            value={stanceType}
-            checked={stanceType === stance}
-            onChange={(event): void => handleStanceChange(event.target.value)}
-          />
-        </label>
+        <button
+          type="button"
+          className={`toggleStance${getActiveStanceClassName(stanceType)}`}
+          onClick={(): void => handleStanceChange(stanceType)}
+        >
+          {`${heading}:`}
+        </button>
       </div>
     );
   };
 
   return (
     <div className="stanceContainer">
-      <form className="stanceSelectForm">
-        {renderRadioButton('standing')}
-        {renderRadioButton('kneeling')}
-        {renderRadioButton('prone')}
-        <div className="bracedToggle">
-          <label>
-            <span>Braced</span>
-            <input
-              type="checkbox"
-              checked={braced}
-              onChange={(): void => toggleBraced(!braced)}
-            />
-          </label>
-        </div>
-      </form>
+      {renderRadioButton('standing')}
+      {renderRadioButton('kneeling')}
+      {renderRadioButton('prone')}
+      <div className="bracedToggle">
+        <button
+          type="button"
+          className={getBracedClassName()}
+          onClick={(): void => toggleBraced(!braced)}
+        >
+          Braced:
+        </button>
+      </div>
     </div>
   );
 };
