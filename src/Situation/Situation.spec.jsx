@@ -6,75 +6,27 @@ import Situation from './index';
 describe('Situation', () => {
   const wrapper = shallow(<Situation />);
   it('should have hip fire checkbox', () => {
-    wrapper
-      .find('.hipFire')
-      .find('input')
-      .simulate('change', { target: { value: true } });
-    expect(
-      wrapper
-        .find('.hipFire')
-        .find('input')
-        .props().checked
-    ).toBe(true);
+    wrapper.find('.hipFire').simulate('click');
+    expect(wrapper.find('.hipFire').hasClass('active')).toBe(true);
   });
   it('should have firing rifle one handed checkbox', () => {
-    wrapper
-      .find('.rifleOneHand')
-      .find('input')
-      .simulate('change', { target: { value: true } });
-    expect(
-      wrapper
-        .find('.rifleOneHand')
-        .find('input')
-        .props().checked
-    ).toBe(true);
+    wrapper.find('.rifleOneHand').simulate('click');
+    expect(wrapper.find('.rifleOneHand').hasClass('active')).toBe(true);
   });
   it('should have firing pistol one handed checkbox', () => {
-    wrapper
-      .find('.pistolOneHand')
-      .find('input')
-      .simulate('change', { target: { value: true } });
-    expect(
-      wrapper
-        .find('.pistolOneHand')
-        .find('input')
-        .props().checked
-    ).toBe(true);
+    wrapper.find('.pistolOneHand').simulate('click');
+    expect(wrapper.find('.pistolOneHand').hasClass('active')).toBe(true);
   });
   it('should have folding stock not used checkbox', () => {
-    wrapper
-      .find('.foldedStock')
-      .find('input')
-      .simulate('change', { target: { value: true } });
-    expect(
-      wrapper
-        .find('.foldedStock')
-        .find('input')
-        .props().checked
-    ).toBe(true);
+    wrapper.find('.foldedStock').simulate('click');
+    expect(wrapper.find('.foldedStock').hasClass('active')).toBe(true);
   });
   it('should have bipod not braced checkbox', () => {
-    wrapper
-      .find('.bipodNotBraced')
-      .find('input')
-      .simulate('change', { target: { value: true } });
-    expect(
-      wrapper
-        .find('.bipodNotBraced')
-        .find('input')
-        .props().checked
-    ).toBe(true);
+    wrapper.find('.bipodNotBraced').simulate('click');
+    expect(wrapper.find('.bipodNotBraced').hasClass('active')).toBe(true);
   });
   it('should have bipod checkbox', () => {
-    wrapper
-      .find('.bipodMount')
-      .find('input')
-      .simulate('change', { target: { value: true } });
-    expect(
-      wrapper
-        .find('.bipodMount')
-        .find('input')
-        .props().checked
-    ).toBe(true);
+    wrapper.find('.bipodMount').simulate('click');
+    expect(wrapper.find('.bipodMount').hasClass('active')).toBe(true);
   });
 });
