@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 
 import situationModifiers from './data';
 
+import './Situation.css';
+
 const Situation: React.FC = () => {
   const [hipFire, toggleHipFire] = useState(false);
   const [rifleOneHand, toggleRifleOneHand] = useState(false);
@@ -16,31 +18,31 @@ const Situation: React.FC = () => {
     toggleValue: Function
   ): JSX.Element => {
     return (
-      <div>
-        <label className={name}>
-          <span>{situationModifiers[name].heading}</span>
-          <input
-            type="checkbox"
-            checked={stateValue}
-            onChange={(): void => toggleValue(!stateValue)}
-          />
-        </label>
+      <div className="situationToggle">
+        <button
+          type="button"
+          className={`${name} toggleSituation ${
+            stateValue === true ? 'active' : ''
+          }`}
+          onClick={(): void => toggleValue(!stateValue)}
+        >
+          <span className="buttonName">{situationModifiers[name].heading}</span>
+          <span className="checkbox">
+            <span className="inner" />
+          </span>
+        </button>
       </div>
     );
   };
 
   return (
     <div className="situationContainer">
-      <form className="situationSelectForm">
-        <div className="situationToggle">
-          {renderLabel('hipFire', hipFire, toggleHipFire)}
-          {renderLabel('rifleOneHand', rifleOneHand, toggleRifleOneHand)}
-          {renderLabel('pistolOneHand', pistolOneHand, togglePistolOneHand)}
-          {renderLabel('foldedStock', foldedStock, toggleFoldedStock)}
-          {renderLabel('bipodNotBraced', bipodNotBraced, toggleBipodNotBraced)}
-          {renderLabel('bipodMount', bipodMount, toggleBipodMount)}
-        </div>
-      </form>
+      {renderLabel('hipFire', hipFire, toggleHipFire)}
+      {renderLabel('rifleOneHand', rifleOneHand, toggleRifleOneHand)}
+      {renderLabel('pistolOneHand', pistolOneHand, togglePistolOneHand)}
+      {renderLabel('foldedStock', foldedStock, toggleFoldedStock)}
+      {renderLabel('bipodNotBraced', bipodNotBraced, toggleBipodNotBraced)}
+      {renderLabel('bipodMount', bipodMount, toggleBipodMount)}
     </div>
   );
 };
