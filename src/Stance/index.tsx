@@ -30,7 +30,7 @@ const Stance: React.FC<Props> = ({
           className={`toggleStance${getActiveStanceClassName(stanceType)}`}
           onClick={(): void => handleUpdateStateValue('stance', stanceType)}
         >
-          <span>{`${heading}:`}</span>
+          <span className="buttonName">{`${heading}`}</span>
           <span className="stanceCircle">
             <span className="inner"></span>
           </span>
@@ -50,7 +50,10 @@ const Stance: React.FC<Props> = ({
           className={getBracedClassName()}
           onClick={(): void => handleUpdateStateValue('braced', !braced)}
         >
-          Braced:
+          <span className="buttonName">Braced</span>
+          <span className="checkbox">
+            <span className="inner" />
+          </span>
         </button>
       </div>
     </div>
