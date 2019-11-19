@@ -14,8 +14,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 1rem;
-  font-size: calc(10px + 2vmin);
-  color: #252b2b;
+  color: #eee9e3;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .App-body {
@@ -27,7 +28,7 @@
 
 .navBtn {
   color: #eee9e3;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
 }
 
 .prevPage {
