@@ -1,27 +1,32 @@
 import React, { useState } from 'react';
 import targetSizeHeadings from './data';
 
-const TargetSize: React.FC = () => {
-  const [targetSize, setTargetSize] = useState('standing');
+type Props = {
+  targetSize: string;
+  handleUpdateStateValue: Function;
+};
 
-  const handleTargetSizeChange = (eventValue: string): void => {
-    setTargetSize(eventValue);
+const TargetSize: React.FC<Props> = ({
+  targetSize,
+  handleUpdateStateValue
+}) => {
+  const getActiveTargetClassName = (name: string): string => {
+    return targetSize === name ? ' active' : '';
   };
 
   const renderRadioButton = (targetType: string): JSX.Element => {
     return (
       <div className="selectTargetSize">
-        <label>
+        <button
+          type="button"
+          className={`toggleSize${getActiveTargetClassName(targetType)}`}
+          onClick={(): void => handleUpdateStateValue('targetSize', targetType)}
+        >
           <span>{targetSizeHeadings[targetType]}</span>
-          <input
-            type="radio"
-            value={targetType}
-            checked={targetType === targetSize}
-            onChange={(event): void =>
-              handleTargetSizeChange(event.target.value)
-            }
-          />
-        </label>
+          <span className="stanceCircle">
+            <span className="inner"></span>
+          </span>
+        </button>
       </div>
     );
   };

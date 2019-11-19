@@ -21,6 +21,7 @@ type State = {
   foldedStock: boolean;
   bipodNotBraced: boolean;
   bipodMount: boolean;
+  targetSize: string;
 };
 
 type Props = {
@@ -40,7 +41,8 @@ class App extends Component<Props, State> {
     pistolOneHand: false,
     foldedStock: false,
     bipodNotBraced: false,
-    bipodMount: false
+    bipodMount: false,
+    targetSize: 'standing'
   };
 
   handleUpdatePage = (value: number): void => {
@@ -72,7 +74,8 @@ class App extends Component<Props, State> {
       pistolOneHand,
       foldedStock,
       bipodNotBraced,
-      bipodMount
+      bipodMount,
+      targetSize
     } = this.state;
     return (
       <div className="App">
@@ -125,7 +128,12 @@ class App extends Component<Props, State> {
               handleUpdateStateValue={this.handleUpdateStateValue}
             />
           )}
-          {page === 5 && <TargetSize />}
+          {page === 5 && (
+            <TargetSize
+              targetSize={targetSize}
+              handleUpdateStateValue={this.handleUpdateStateValue}
+            />
+          )}
           {page === 6 && <Shooting />}
         </div>
       </div>
