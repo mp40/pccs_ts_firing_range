@@ -57,7 +57,7 @@ class App extends Component<Props, State> {
             className="navBtn prevPage"
             onClick={(): void => this.handleUpdatePage(-1)}
           >
-            &#8594;
+            &#8592;
           </button>
           <div>PCCS Firing Range</div>
           <button
