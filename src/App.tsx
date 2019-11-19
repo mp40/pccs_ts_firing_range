@@ -15,6 +15,12 @@ type State = {
   range: number;
   stance: string;
   braced: boolean;
+  hipFire: boolean;
+  rifleOneHand: boolean;
+  pistolOneHand: boolean;
+  foldedStock: boolean;
+  bipodNotBraced: boolean;
+  bipodMount: boolean;
 };
 
 type Props = {
@@ -28,7 +34,13 @@ class App extends Component<Props, State> {
     aims: 1,
     range: 1,
     stance: 'standing',
-    braced: false
+    braced: false,
+    hipFire: false,
+    rifleOneHand: false,
+    pistolOneHand: false,
+    foldedStock: false,
+    bipodNotBraced: false,
+    bipodMount: false
   };
 
   handleUpdatePage = (value: number): void => {
@@ -48,7 +60,20 @@ class App extends Component<Props, State> {
   };
 
   render(): JSX.Element {
-    const { page, level, aims, range, stance, braced } = this.state;
+    const {
+      page,
+      level,
+      aims,
+      range,
+      stance,
+      braced,
+      hipFire,
+      rifleOneHand,
+      pistolOneHand,
+      foldedStock,
+      bipodNotBraced,
+      bipodMount
+    } = this.state;
     return (
       <div className="App">
         <header className="App-header">
@@ -89,7 +114,17 @@ class App extends Component<Props, State> {
               handleUpdateStateValue={this.handleUpdateStateValue}
             />
           )}
-          {page === 4 && <Situation />}
+          {page === 4 && (
+            <Situation
+              hipFire={hipFire}
+              rifleOneHand={rifleOneHand}
+              pistolOneHand={pistolOneHand}
+              foldedStock={foldedStock}
+              bipodNotBraced={bipodNotBraced}
+              bipodMount={bipodMount}
+              handleUpdateStateValue={this.handleUpdateStateValue}
+            />
+          )}
           {page === 5 && <TargetSize />}
           {page === 6 && <Shooting />}
         </div>

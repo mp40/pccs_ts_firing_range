@@ -4,19 +4,26 @@ import situationModifiers from './data';
 
 import './Situation.css';
 
-const Situation: React.FC = () => {
-  const [hipFire, toggleHipFire] = useState(false);
-  const [rifleOneHand, toggleRifleOneHand] = useState(false);
-  const [pistolOneHand, togglePistolOneHand] = useState(false);
-  const [foldedStock, toggleFoldedStock] = useState(false);
-  const [bipodNotBraced, toggleBipodNotBraced] = useState(false);
-  const [bipodMount, toggleBipodMount] = useState(false);
+type Props = {
+  hipFire: boolean;
+  rifleOneHand: boolean;
+  pistolOneHand: boolean;
+  foldedStock: boolean;
+  bipodNotBraced: boolean;
+  bipodMount: boolean;
+  handleUpdateStateValue: Function;
+};
 
-  const renderLabel = (
-    name: string,
-    stateValue: boolean,
-    toggleValue: Function
-  ): JSX.Element => {
+const Situation: React.FC<Props> = ({
+  hipFire,
+  rifleOneHand,
+  pistolOneHand,
+  foldedStock,
+  bipodNotBraced,
+  bipodMount,
+  handleUpdateStateValue
+}) => {
+  const renderLabel = (name: string, stateValue: boolean): JSX.Element => {
     return (
       <div className="situationToggle">
         <button
@@ -24,7 +31,7 @@ const Situation: React.FC = () => {
           className={`${name} toggleSituation ${
             stateValue === true ? 'active' : ''
           }`}
-          onClick={(): void => toggleValue(!stateValue)}
+          onClick={(): void => handleUpdateStateValue(name, !stateValue)}
         >
           <span className="buttonName">{situationModifiers[name].heading}</span>
           <span className="checkbox">
@@ -37,12 +44,12 @@ const Situation: React.FC = () => {
 
   return (
     <div className="situationContainer">
-      {renderLabel('hipFire', hipFire, toggleHipFire)}
-      {renderLabel('rifleOneHand', rifleOneHand, toggleRifleOneHand)}
-      {renderLabel('pistolOneHand', pistolOneHand, togglePistolOneHand)}
-      {renderLabel('foldedStock', foldedStock, toggleFoldedStock)}
-      {renderLabel('bipodNotBraced', bipodNotBraced, toggleBipodNotBraced)}
-      {renderLabel('bipodMount', bipodMount, toggleBipodMount)}
+      {renderLabel('hipFire', hipFire)}
+      {renderLabel('rifleOneHand', rifleOneHand)}
+      {renderLabel('pistolOneHand', pistolOneHand)}
+      {renderLabel('foldedStock', foldedStock)}
+      {renderLabel('bipodNotBraced', bipodNotBraced)}
+      {renderLabel('bipodMount', bipodMount)}
     </div>
   );
 };
