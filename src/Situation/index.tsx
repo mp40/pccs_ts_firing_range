@@ -1,6 +1,6 @@
 import React from 'react';
 
-import situationModifiers from './data';
+import CheckBox from '../components/CheckBox';
 
 import './Situation.css';
 
@@ -23,33 +23,26 @@ const Situation: React.FC<Props> = ({
   bipodMount,
   handleUpdateStateValue
 }) => {
-  const renderLabel = (name: string, stateValue: boolean): JSX.Element => {
+  const renderCheckBox = (name: string, stateValue: boolean): JSX.Element => {
     return (
-      <div className="situationToggle">
-        <button
-          type="button"
-          className={`${name} toggleSituation ${
-            stateValue === true ? 'active' : ''
-          }`}
-          onClick={(): void => handleUpdateStateValue(name, !stateValue)}
-        >
-          <span className="buttonName">{situationModifiers[name].heading}</span>
-          <span className="checkbox">
-            <span className="inner" />
-          </span>
-        </button>
-      </div>
+      <CheckBox
+        key={name}
+        component={'situation'}
+        value={name}
+        isActive={stateValue}
+        handleUpdateStateValue={handleUpdateStateValue}
+      />
     );
   };
 
   return (
     <div className="situationContainer">
-      {renderLabel('hipFire', hipFire)}
-      {renderLabel('rifleOneHand', rifleOneHand)}
-      {renderLabel('pistolOneHand', pistolOneHand)}
-      {renderLabel('foldedStock', foldedStock)}
-      {renderLabel('bipodNotBraced', bipodNotBraced)}
-      {renderLabel('bipodMount', bipodMount)}
+      {renderCheckBox('hipFire', hipFire)}
+      {renderCheckBox('rifleOneHand', rifleOneHand)}
+      {renderCheckBox('pistolOneHand', pistolOneHand)}
+      {renderCheckBox('foldedStock', foldedStock)}
+      {renderCheckBox('bipodNotBraced', bipodNotBraced)}
+      {renderCheckBox('bipodMount', bipodMount)}
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import RadioButton from '../components/RadioButton';
+import CheckBox from '../components/CheckBox';
 
 import './Stance.css';
 
@@ -15,10 +16,6 @@ const Stance: React.FC<Props> = ({
   braced,
   handleUpdateStateValue
 }) => {
-  const getBracedClassName = (): string => {
-    return braced ? 'toggleBraced active' : 'toggleBraced';
-  };
-
   const renderRadioButton = (stanceType: string): JSX.Element => {
     return (
       <RadioButton
@@ -35,18 +32,12 @@ const Stance: React.FC<Props> = ({
       {renderRadioButton('standing')}
       {renderRadioButton('kneeling')}
       {renderRadioButton('prone')}
-      <div className="bracedToggle">
-        <button
-          type="button"
-          className={getBracedClassName()}
-          onClick={(): void => handleUpdateStateValue('braced', !braced)}
-        >
-          <span className="buttonName">Braced</span>
-          <span className="checkbox">
-            <span className="inner" />
-          </span>
-        </button>
-      </div>
+      <CheckBox
+        component={'braced'}
+        value={'braced'}
+        isActive={braced}
+        handleUpdateStateValue={handleUpdateStateValue}
+      />
     </div>
   );
 };

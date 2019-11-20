@@ -10,7 +10,16 @@ const buttonHeadings: { [key: string]: HeadingType } = {
     kneeling: 'Kneeling',
     prone: 'Prone'
   },
-  targetSize: targetSizeHeadings
+  targetSize: targetSizeHeadings,
+  braced: { braced: 'Braced' },
+  situation: {
+    hipFire: 'Hip Fire',
+    rifleOneHand: 'Firing Rifle One Handed',
+    pistolOneHand: 'Firing Pistol One Handed',
+    foldedStock: 'Folding Stock Not Used',
+    bipodNotBraced: 'Bipod Not Braced',
+    bipodMount: 'Bipod Mounted Weapon'
+  }
 };
 
 const getButtonHeading = (component: string, value: string): string => {

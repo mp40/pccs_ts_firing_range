@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import Situation from './index';
 
 describe('Situation', () => {
   const handleUpdateStateValue = jest.fn();
-  const wrapper = shallow(
+  const wrapper = mount(
     <Situation
       hipFire={false}
       rifleOneHand={false}

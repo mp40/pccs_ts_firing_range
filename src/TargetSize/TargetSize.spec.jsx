@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from 'react';
-import { shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import TargetSize from './index';
 
 const targetInputPosition = (wrapper, position) => {
@@ -9,7 +9,7 @@ const targetInputPosition = (wrapper, position) => {
 
 describe('Target Size', () => {
   const handleUpdateStateValue = jest.fn();
-  const wrapper = shallow(
+  const wrapper = mount(
     <TargetSize
       targetSize={'standing'}
       handleUpdateStateValue={handleUpdateStateValue}
