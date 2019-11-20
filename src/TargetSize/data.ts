@@ -1,4 +1,4 @@
-const targetSizeHeadings: { [key: string]: string } = {
+export const targetSizeHeadings: { [key: string]: string } = {
   standing: 'Standing Exposed',
   kneeling: 'Kneeling Exposed',
   prone: 'Prone / Crawl',
@@ -10,4 +10,14 @@ const targetSizeHeadings: { [key: string]: string } = {
   lowProne: 'Low Prone'
 };
 
-export default targetSizeHeadings;
+export const targetSizeModifiers: { [key: string]: number } = {
+  standing: 7,
+  kneeling: 6,
+  prone: 2,
+  lookOver: -4,
+  fireOver: 0,
+  running: 8,
+  crouch: 7,
+  handsKnees: 6,
+  lowProne: 1
+};

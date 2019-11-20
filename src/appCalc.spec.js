@@ -2,7 +2,8 @@ import {
   calculateLevelAndAimTime,
   getRangeModifier,
   calculateStanceModifiers,
-  calculateSituationModifiers
+  calculateSituationModifiers,
+  getTargetSizeModifier
 } from './appCalc';
 
 describe('calculating ALM', () => {
@@ -163,6 +164,17 @@ describe('calculating ALM', () => {
           bipodMount
         ])
       ).toBe(-6 + -7 + -4 + -4 + -2 + 3);
+    });
+  });
+  describe('target size modifiers', () => {
+    it('should return correct value for default standing exposed', () => {
+      expect(getTargetSizeModifier('standing')).toBe(7);
+    });
+    it('should return correct value for low prone', () => {
+      expect(getTargetSizeModifier('lowProne')).toBe(1);
+    });
+    it('should return correct value for fire over/around cover', () => {
+      expect(getTargetSizeModifier('fireOver')).toBe(0);
     });
   });
 });

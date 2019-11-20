@@ -1,4 +1,4 @@
-import targetSizeHeadings from '../TargetSize/data';
+import { targetSizeHeadings } from '../TargetSize/data';
 
 interface HeadingType {
   [key: string]: string;

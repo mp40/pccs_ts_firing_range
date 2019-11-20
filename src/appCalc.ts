@@ -2,6 +2,7 @@ import { m1Carbine, salMod } from './Shooter/data';
 import rangeTable from './Range/data';
 import stanceModifiers from './Stance/data';
 import situationModifiers from './Situation/data';
+import { targetSizeModifiers } from './TargetSize/data';
 
 export const calculateLevelAndAimTime = (
   level: number,
@@ -32,4 +33,8 @@ export const calculateSituationModifiers = (situations: boolean[]): number => {
     }
     return acc;
   }, 0);
+};
+
+export const getTargetSizeModifier = (size: string): number => {
+  return targetSizeModifiers[size];
 };

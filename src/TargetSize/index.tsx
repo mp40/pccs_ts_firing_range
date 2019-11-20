@@ -1,6 +1,6 @@
 import React from 'react';
 import RadioButton from '../components/RadioButton';
-import targetSizeHeadings from './data';
+import { targetSizeHeadings } from './data';
 
 import './TargetSize.css';
 
