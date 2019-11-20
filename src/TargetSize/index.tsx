@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
+import RadioButton from '../components/RadioButton';
 import targetSizeHeadings from './data';
+
+import './TargetSize.css';
 
 type Props = {
   targetSize: string;
@@ -10,40 +13,28 @@ const TargetSize: React.FC<Props> = ({
   targetSize,
   handleUpdateStateValue
 }) => {
-  const getActiveTargetClassName = (name: string): string => {
-    return targetSize === name ? ' active' : '';
-  };
-
   const renderRadioButton = (targetType: string): JSX.Element => {
     return (
-      <div className="selectTargetSize">
-        <button
-          type="button"
-          className={`toggleSize${getActiveTargetClassName(targetType)}`}
-          onClick={(): void => handleUpdateStateValue('targetSize', targetType)}
-        >
-          <span>{targetSizeHeadings[targetType]}</span>
-          <span className="stanceCircle">
-            <span className="inner"></span>
-          </span>
-        </button>
-      </div>
+      <RadioButton
+        component={'targetSize'}
+        value={targetType}
+        isActive={targetType === targetSize}
+        handleUpdateStateValue={handleUpdateStateValue}
+      />
     );
   };
 
   return (
     <div className="targetSizeContainer">
-      <form className="targetSizeSelectForm">
-        {renderRadioButton('standing')}
-        {renderRadioButton('kneeling')}
-        {renderRadioButton('prone')}
-        {renderRadioButton('lookOver')}
-        {renderRadioButton('fireOver')}
-        {renderRadioButton('running')}
-        {renderRadioButton('crouch')}
-        {renderRadioButton('handsKnees')}
-        {renderRadioButton('lowProne')}
-      </form>
+      {renderRadioButton('standing')}
+      {renderRadioButton('kneeling')}
+      {renderRadioButton('prone')}
+      {renderRadioButton('lookOver')}
+      {renderRadioButton('fireOver')}
+      {renderRadioButton('running')}
+      {renderRadioButton('crouch')}
+      {renderRadioButton('handsKnees')}
+      {renderRadioButton('lowProne')}
     </div>
   );
 };

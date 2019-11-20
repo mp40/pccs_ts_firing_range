@@ -1,5 +1,7 @@
 import React from 'react';
 
+import RadioButton from '../components/RadioButton';
+
 import './Stance.css';
 
 type Props = {
@@ -17,25 +19,14 @@ const Stance: React.FC<Props> = ({
     return braced ? 'toggleBraced active' : 'toggleBraced';
   };
 
-  const getActiveStanceClassName = (name: string): string => {
-    return stance === name ? ' active' : '';
-  };
-
   const renderRadioButton = (stanceType: string): JSX.Element => {
-    const heading = stanceType.charAt(0).toUpperCase() + stanceType.slice(1);
     return (
-      <div className="stanceSelect">
-        <button
-          type="button"
-          className={`toggleStance${getActiveStanceClassName(stanceType)}`}
-          onClick={(): void => handleUpdateStateValue('stance', stanceType)}
-        >
-          <span className="buttonName">{`${heading}`}</span>
-          <span className="stanceCircle">
-            <span className="inner"></span>
-          </span>
-        </button>
-      </div>
+      <RadioButton
+        component={'stance'}
+        value={stanceType}
+        isActive={stanceType === stance}
+        handleUpdateStateValue={handleUpdateStateValue}
+      />
     );
   };
 

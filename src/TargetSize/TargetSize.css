@@ -1,0 +1,10 @@
+.targetSizeContainer {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.targetSizeContainer > div {
+    margin-bottom: 0.5rem;
+}
