@@ -16,6 +16,7 @@ const TargetSize: React.FC<Props> = ({
   const renderRadioButton = (targetType: string): JSX.Element => {
     return (
       <RadioButton
+        key={targetType}
         component={'targetSize'}
         value={targetType}
         isActive={targetType === targetSize}
@@ -26,15 +27,9 @@ const TargetSize: React.FC<Props> = ({
 
   return (
     <div className="targetSizeContainer">
-      {renderRadioButton('standing')}
-      {renderRadioButton('kneeling')}
-      {renderRadioButton('prone')}
-      {renderRadioButton('lookOver')}
-      {renderRadioButton('fireOver')}
-      {renderRadioButton('running')}
-      {renderRadioButton('crouch')}
-      {renderRadioButton('handsKnees')}
-      {renderRadioButton('lowProne')}
+      {Object.keys(targetSizeHeadings).map(heading => {
+        return renderRadioButton(heading);
+      })}
     </div>
   );
 };

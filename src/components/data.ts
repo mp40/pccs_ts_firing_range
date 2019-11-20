@@ -1,3 +1,5 @@
+import targetSizeHeadings from '../TargetSize/data';
+
 interface HeadingType {
   [key: string]: string;
 }
@@ -8,17 +10,7 @@ const buttonHeadings: { [key: string]: HeadingType } = {
     kneeling: 'Kneeling',
     prone: 'Prone'
   },
-  targetSize: {
-    standing: 'Standing Exposed',
-    kneeling: 'Kneeling Exposed',
-    prone: 'Prone / Crawl',
-    lookOver: 'Look Over/Around',
-    fireOver: 'Fire Over/Around',
-    running: 'Running',
-    crouch: 'Low Crouch',
-    handsKnees: 'Hands and Knees',
-    lowProne: 'Low Prone'
-  }
+  targetSize: targetSizeHeadings
 };
 
 const getButtonHeading = (component: string, value: string): string => {
