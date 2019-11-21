@@ -9,14 +9,15 @@
 .App-header {
   background-color: #9a835f;
   min-height: 10vh;
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
   padding: 0 1rem;
   color: #eee9e3;
   font-size: 1.5rem;
   font-weight: 600;
+  position: relative;
 }
 
 .App-body {
@@ -24,6 +25,27 @@
   min-height: 90vh;
   font-size: calc(10px + 1vmin);
   color: #252b2b;
+}
+
+.appHeading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.nextPage {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.prevPage {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }
 
 .navBtn {

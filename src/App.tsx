@@ -88,21 +88,25 @@ class App extends Component<Props, State> {
     return (
       <div className="App">
         <header className="App-header">
-          <button
-            type="button"
-            className="navBtn prevPage"
-            onClick={(): void => this.handleUpdatePage(-1)}
-          >
-            &#8592;
-          </button>
-          <div>PCCS Firing Range</div>
-          <button
-            type="button"
-            className="navBtn nextPage"
-            onClick={(): void => this.handleUpdatePage(1)}
-          >
-            &#8594;
-          </button>
+          {page > 1 && (
+            <button
+              type="button"
+              className="navBtn prevPage"
+              onClick={(): void => this.handleUpdatePage(-1)}
+            >
+              &#8592;
+            </button>
+          )}
+          <div className="appHeading">PCCS Firing Range</div>
+          {page < 6 && (
+            <button
+              type="button"
+              className="navBtn nextPage"
+              onClick={(): void => this.handleUpdatePage(1)}
+            >
+              &#8594;
+            </button>
+          )}
         </header>
         <div className="App-body">
           {page === 1 && (

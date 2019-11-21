@@ -111,3 +111,16 @@ describe('using page two', () => {
     expect(wrapper.text()).toContain('Current Range: 5');
   });
 });
+
+describe('navigation gaurds', () => {
+  const wrapper = shallow(<App />);
+  it('should not render prev button if on page one', () => {
+    expect(wrapper.find('.prevPage').exists()).toBe(false);
+    expect(wrapper.find('.nextPage').exists()).toBe(true);
+  });
+  it('should not render next button if on page six', () => {
+    wrapper.setState({ page: 6 });
+    expect(wrapper.find('.nextPage').exists()).toBe(false);
+    expect(wrapper.find('.prevPage').exists()).toBe(true);
+  });
+});
