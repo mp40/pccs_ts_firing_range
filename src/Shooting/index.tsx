@@ -63,7 +63,7 @@ const Shooting: React.FC<Props> = ({
         <span>Target Size Mod:</span>
         <span>{targetModifier}</span>
       </div>
-      <div className="shootingRow result">
+      <div className="result">
         <span>Odds Of Hitting:</span>
         <span>{getTotalModifier()}</span>
       </div>
