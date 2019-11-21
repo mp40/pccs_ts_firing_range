@@ -6,6 +6,14 @@ import Range from './Range';
 import Shooter from './Shooter';
 import Shooting from './Shooting';
 
+import {
+  calculateLevelAndAimTime,
+  getRangeModifier,
+  calculateStanceModifiers,
+  calculateSituationModifiers,
+  getTargetSizeModifier
+} from './appCalc';
+
 import './App.css';
 
 type State = {
@@ -134,7 +142,22 @@ class App extends Component<Props, State> {
               handleUpdateStateValue={this.handleUpdateStateValue}
             />
           )}
-          {page === 6 && <Shooting />}
+          {page === 6 && (
+            <Shooting
+              levelAndAimTimeModifier={calculateLevelAndAimTime(level, aims)}
+              rangeModifier={getRangeModifier(range)}
+              stanceModifier={calculateStanceModifiers(stance, braced)}
+              situationModifier={calculateSituationModifiers([
+                hipFire,
+                rifleOneHand,
+                pistolOneHand,
+                foldedStock,
+                bipodNotBraced,
+                bipodMount
+              ])}
+              targetModifier={getTargetSizeModifier(targetSize)}
+            />
+          )}
         </div>
       </div>
     );
