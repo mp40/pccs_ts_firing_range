@@ -7,10 +7,12 @@
 }
 
 .App-header {
-  background-color: #9a835f;
+  /* background-color: #9a835f; */
+  background-color: antiquewhite;
   min-height: 10vh;
   padding: 0 1rem;
-  color: #eee9e3;
+  /* color: #eee9e3; */
+  color: bisque;
   font-size: 1.3rem;
   font-weight: 600;
   position: relative;
