@@ -7,7 +7,7 @@
 }
 
 .App-header {
-  background-color: #9a835f;
+  background-color: var(--iraqi-sand);
   min-height: 10vh;
   padding: 0 1rem;
   color: #eee9e3;
