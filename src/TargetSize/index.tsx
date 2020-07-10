@@ -11,7 +11,7 @@ type Props = {
 
 const TargetSize: React.FC<Props> = ({
   targetSize,
-  handleUpdateStateValue
+  handleUpdateStateValue,
 }) => {
   const renderRadioButton = (targetType: string): JSX.Element => {
     return (
@@ -27,7 +27,7 @@ const TargetSize: React.FC<Props> = ({
 
   return (
     <div className="targetSizeContainer">
-      {Object.keys(targetSizeHeadings).map(heading => {
+      {Object.keys(targetSizeHeadings).map((heading) => {
         return renderRadioButton(heading);
       })}
     </div>

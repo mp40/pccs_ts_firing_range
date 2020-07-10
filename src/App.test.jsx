@@ -55,24 +55,13 @@ describe('using page one', () => {
   const wrapper = mount(<App />);
   it('should be possible to select level', () => {
     wrapper.find('.levelButton').simulate('click');
-    wrapper
-      .find('.levelBtns')
-      .at(3)
-      .simulate('click');
+    wrapper.find('.levelBtns').at(3).simulate('click');
     expect(wrapper.text()).toContain('Shooter Level: 3');
   });
   it('should be possible to select aims', () => {
     wrapper.find('.aimButton').simulate('click');
-    wrapper
-      .find('.aimBtns')
-      .at(2)
-      .simulate('click');
-    expect(
-      wrapper
-        .find('.aimTimeRow')
-        .at(2)
-        .hasClass('selected')
-    ).toBe(true);
+    wrapper.find('.aimBtns').at(2).simulate('click');
+    expect(wrapper.find('.aimTimeRow').at(2).hasClass('selected')).toBe(true);
   });
   it('should be possible to go to next page', () => {
     wrapper.find('.nextPage').simulate('click');
@@ -81,12 +70,7 @@ describe('using page one', () => {
   it('should be possible to go back to page one without losing choices', () => {
     wrapper.find('.prevPage').simulate('click');
     expect(wrapper.text()).toContain('Shooter Level: 3');
-    expect(
-      wrapper
-        .find('.aimTimeRow')
-        .at(2)
-        .hasClass('selected')
-    ).toBe(true);
+    expect(wrapper.find('.aimTimeRow').at(2).hasClass('selected')).toBe(true);
   });
 });
 
@@ -96,10 +80,7 @@ describe('using page two', () => {
   wrapper.setState({ page });
   it('should be possible to select range', () => {
     wrapper.find('.toggleSelectRange').simulate('click');
-    wrapper
-      .find('.rangeButton')
-      .at(4)
-      .simulate('click');
+    wrapper.find('.rangeButton').at(4).simulate('click');
     expect(wrapper.text()).toContain('Current Range: 5');
   });
   it('should be possible to go to next page', () => {

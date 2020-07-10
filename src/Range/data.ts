@@ -38,7 +38,7 @@ const rangeTable: { [key: number]: number } = {
   450: -11,
   500: -12,
   600: -13,
-  700: -14
+  700: -14,
 };
 
 export default rangeTable;

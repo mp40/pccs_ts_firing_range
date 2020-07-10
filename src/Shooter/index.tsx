@@ -121,11 +121,11 @@ const Shooter: React.FC<Props> = ({ level, aims, handleUpdateStateValue }) => {
 
       <div className="selectPanel">
         {showLevels &&
-          [0, 1, 2, 3, 4, 5].map(lvl => {
+          [0, 1, 2, 3, 4, 5].map((lvl) => {
             return renderSelectionButton(lvl, 'level');
           })}
         {showAims &&
-          m1Carbine.aim.ac.map(aimCount => {
+          m1Carbine.aim.ac.map((aimCount) => {
             return renderSelectionButton(aimCount, 'aim');
           })}
       </div>

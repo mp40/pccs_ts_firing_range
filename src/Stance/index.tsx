@@ -14,7 +14,7 @@ type Props = {
 const Stance: React.FC<Props> = ({
   stance,
   braced,
-  handleUpdateStateValue
+  handleUpdateStateValue,
 }) => {
   const renderRadioButton = (stanceType: string): JSX.Element => {
     return (

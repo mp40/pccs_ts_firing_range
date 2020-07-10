@@ -28,10 +28,7 @@ describe('Shooter', () => {
   });
   it('should be possible to change shooting level', () => {
     wrapper.find('.levelButton').simulate('click');
-    wrapper
-      .find('.levelBtns')
-      .at(4)
-      .simulate('click');
+    wrapper.find('.levelBtns').at(4).simulate('click');
     expect(handleUpdateStateValue).toHaveBeenCalledWith('level', 4);
   });
   it('should update aim time mod when level is changed', () => {
@@ -41,10 +38,7 @@ describe('Shooter', () => {
   });
   it('should be possible to select an aim time', () => {
     wrapper.find('.aimButton').simulate('click');
-    wrapper
-      .find('.aimBtns')
-      .at(2)
-      .simulate('click');
+    wrapper.find('.aimBtns').at(2).simulate('click');
     expect(handleUpdateStateValue).toHaveBeenLastCalledWith('aims', 3);
   });
   it('should display the weapon recoil recovery', () => {

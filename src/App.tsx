@@ -11,7 +11,7 @@ import {
   getRangeModifier,
   calculateStanceModifiers,
   calculateSituationModifiers,
-  getTargetSizeModifier
+  getTargetSizeModifier,
 } from './appCalc';
 
 import './App.css';
@@ -50,7 +50,7 @@ class App extends Component<Props, State> {
     foldedStock: false,
     bipodNotBraced: false,
     bipodMount: false,
-    targetSize: 'standing'
+    targetSize: 'standing',
   };
 
   handleUpdatePage = (value: number): void => {
@@ -62,7 +62,7 @@ class App extends Component<Props, State> {
     prevState: State
   ): State => ({
     ...prevState,
-    [key]: value
+    [key]: value,
   });
 
   handleUpdateStateValue = (key: keyof State, value: number): void => {
@@ -83,7 +83,7 @@ class App extends Component<Props, State> {
       foldedStock,
       bipodNotBraced,
       bipodMount,
-      targetSize
+      targetSize,
     } = this.state;
     return (
       <div className="App">
@@ -157,7 +157,7 @@ class App extends Component<Props, State> {
                 pistolOneHand,
                 foldedStock,
                 bipodNotBraced,
-                bipodMount
+                bipodMount,
               ])}
               targetModifier={getTargetSizeModifier(targetSize)}
             />

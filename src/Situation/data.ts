@@ -9,7 +9,7 @@ const situationModifiers: { [key: string]: SituationShape } = {
   pistolOneHand: { mod: -4, heading: 'Firing Pistol One Handed' },
   foldedStock: { mod: -4, heading: 'Folding Stock Not Used' },
   bipodNotBraced: { mod: -2, heading: 'Bipod Not Braced' },
-  bipodMount: { mod: 3, heading: 'Bipod Mounted Weapon' }
+  bipodMount: { mod: 3, heading: 'Bipod Mounted Weapon' },
 };
 
 export default situationModifiers;

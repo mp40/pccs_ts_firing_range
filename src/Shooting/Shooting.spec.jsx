@@ -41,7 +41,7 @@ describe('the shooting page', () => {
       rangeModifier: 0,
       stanceModifier: 0,
       situationModifier: 0,
-      targetModifier: -2
+      targetModifier: -2,
     });
     expect(wrapper.text()).toContain('Odds Of Hitting:0%');
     expect(wrapper.text()).not.toContain('0% or less');
@@ -52,7 +52,7 @@ describe('the shooting page', () => {
       rangeModifier: 0,
       stanceModifier: 0,
       situationModifier: 0,
-      targetModifier: -3
+      targetModifier: -3,
     });
     expect(wrapper.text()).toContain('Auto Miss');
   });
@@ -62,7 +62,7 @@ describe('the shooting page', () => {
       rangeModifier: 0,
       stanceModifier: 0,
       situationModifier: 0,
-      targetModifier: 29
+      targetModifier: 29,
     });
     expect(wrapper.text()).toContain('Odds Of Hitting:99% or less');
   });

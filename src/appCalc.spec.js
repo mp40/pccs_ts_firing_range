@@ -3,7 +3,7 @@ import {
   getRangeModifier,
   calculateStanceModifiers,
   calculateSituationModifiers,
-  getTargetSizeModifier
+  getTargetSizeModifier,
 } from './appCalc';
 
 describe('calculating ALM', () => {
@@ -90,7 +90,7 @@ describe('calculating ALM', () => {
           pistolOneHand,
           foldedStock,
           bipodNotBraced,
-          bipodMount
+          bipodMount,
         ])
       ).toBe(0);
     });
@@ -103,7 +103,7 @@ describe('calculating ALM', () => {
           pistolOneHand,
           foldedStock,
           bipodNotBraced,
-          bipodMount
+          bipodMount,
         ])
       ).toBe(-6);
     });
@@ -116,7 +116,7 @@ describe('calculating ALM', () => {
           pistolOneHand,
           foldedStock,
           bipodNotBraced,
-          bipodMount
+          bipodMount,
         ])
       ).toBe(-4);
     });
@@ -129,7 +129,7 @@ describe('calculating ALM', () => {
           pistolOneHand,
           foldedStock,
           bipodNotBraced,
-          bipodMount
+          bipodMount,
         ])
       ).toBe(3);
     });
@@ -143,7 +143,7 @@ describe('calculating ALM', () => {
           pistolOneHand,
           foldedStock,
           bipodNotBraced,
-          bipodMount
+          bipodMount,
         ])
       ).toBe(-7 + -4);
     });
@@ -161,7 +161,7 @@ describe('calculating ALM', () => {
           pistolOneHand,
           foldedStock,
           bipodNotBraced,
-          bipodMount
+          bipodMount,
         ])
       ).toBe(-6 + -7 + -4 + -4 + -2 + 3);
     });

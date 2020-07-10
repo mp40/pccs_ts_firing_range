@@ -7,7 +7,7 @@ export const targetSizeHeadings: { [key: string]: string } = {
   running: 'Running',
   crouch: 'Low Crouch',
   handsKnees: 'Hands and Knees',
-  lowProne: 'Low Prone'
+  lowProne: 'Low Prone',
 };
 
 export const targetSizeModifiers: { [key: string]: number } = {
@@ -19,5 +19,5 @@ export const targetSizeModifiers: { [key: string]: number } = {
   running: 8,
   crouch: 7,
   handsKnees: 6,
-  lowProne: 1
+  lowProne: 1,
 };

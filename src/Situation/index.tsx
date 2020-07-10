@@ -21,7 +21,7 @@ const Situation: React.FC<Props> = ({
   foldedStock,
   bipodNotBraced,
   bipodMount,
-  handleUpdateStateValue
+  handleUpdateStateValue,
 }) => {
   const renderCheckBox = (name: string, stateValue: boolean): JSX.Element => {
     return (

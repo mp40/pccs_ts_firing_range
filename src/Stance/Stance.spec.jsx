@@ -7,7 +7,7 @@ const stanceInputButton = (wrapper, position) => {
   return wrapper.find('.toggleStance').at(position);
 };
 
-const bracedInputPosition = wrapper => {
+const bracedInputPosition = (wrapper) => {
   return wrapper.find('.bracedToggle').find('button');
 };
 

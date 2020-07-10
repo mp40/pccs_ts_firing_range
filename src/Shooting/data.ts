@@ -38,7 +38,7 @@ const oddsOfHittingTable: { [key: string]: number | boolean } = {
   '-10': false,
   '-15': false,
   '-17': false,
-  '-22': false
+  '-22': false,
 };
 
 export default oddsOfHittingTable;

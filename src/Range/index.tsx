@@ -31,7 +31,7 @@ const Range: React.FC<Props> = ({ range, handleUpdateStateValue }) => {
       </button>
       <div className="rangeButtonCiontainer">
         {showRanges &&
-          Object.keys(rangeTable).map(rng => {
+          Object.keys(rangeTable).map((rng) => {
             return (
               <button
                 type="button"

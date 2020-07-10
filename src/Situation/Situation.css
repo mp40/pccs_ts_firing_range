@@ -1,10 +1,10 @@
 .situationContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
 }
 
 .situationContainer > div {
-    margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }

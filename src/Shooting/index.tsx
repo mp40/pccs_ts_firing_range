@@ -17,7 +17,7 @@ const Shooting: React.FC<Props> = ({
   rangeModifier,
   stanceModifier,
   situationModifier,
-  targetModifier
+  targetModifier,
 }) => {
   const getTotalModifier = (): string => {
     const total =

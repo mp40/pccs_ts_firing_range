@@ -13,10 +13,7 @@ describe('Range', () => {
   });
   it('should be possible to change range', () => {
     wrapper.find('.toggleSelectRange').simulate('click');
-    wrapper
-      .find('.rangeButton')
-      .at(9)
-      .simulate('click');
+    wrapper.find('.rangeButton').at(9).simulate('click');
     expect(handleUpdateStateValue).toHaveBeenLastCalledWith('range', 11);
   });
 });
