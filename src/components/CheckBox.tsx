@@ -8,15 +8,15 @@ type Props = {
   component: string;
   value: string;
   isActive: boolean;
-  handleUpdateStateValue: Function;
+  handleUpdateStateValue: (key: string, isActive: boolean) => void;
 };
 
 const CheckBox: React.FC<Props> = ({
   component,
   value,
   isActive,
-  handleUpdateStateValue
-}) => {
+  handleUpdateStateValue,
+}: Props) => {
   const getButtonClassName = (): string => {
     const name = component === 'braced' ? 'toggleBraced' : 'toggleSize';
     return isActive ? name + ' active' : name;

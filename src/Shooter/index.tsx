@@ -8,7 +8,7 @@ import './Shooter.css';
 type Props = {
   level: number;
   aims: number;
-  handleUpdateStateValue: Function;
+  handleUpdateStateValue: (key: string, lvl: number) => void;
 };
 
 const Shooter: React.FC<Props> = ({ level, aims, handleUpdateStateValue }) => {

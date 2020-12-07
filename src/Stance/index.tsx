@@ -8,14 +8,14 @@ import './Stance.css';
 type Props = {
   stance: string;
   braced: boolean;
-  handleUpdateStateValue: Function;
+  handleUpdateStateValue: (key: string, value: unknown) => void;
 };
 
 const Stance: React.FC<Props> = ({
   stance,
   braced,
   handleUpdateStateValue,
-}) => {
+}: Props) => {
   const renderRadioButton = (stanceType: string): JSX.Element => {
     return (
       <RadioButton

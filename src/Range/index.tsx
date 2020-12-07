@@ -6,10 +6,10 @@ import './Range.css';
 
 type Props = {
   range: number;
-  handleUpdateStateValue: Function;
+  handleUpdateStateValue: (key: string, rng: number) => void;
 };
 
-const Range: React.FC<Props> = ({ range, handleUpdateStateValue }) => {
+const Range: React.FC<Props> = ({ range, handleUpdateStateValue }: Props) => {
   const [showRanges, toggleShowRanges] = useState(false);
 
   const handleRangeUpdate = (rng: number): void => {

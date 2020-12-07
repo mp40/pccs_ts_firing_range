@@ -58,14 +58,12 @@ class App extends Component<Props, State> {
     this.setState({ page: page + value });
   };
 
-  updateState = (key: keyof State, value: number) => (
-    prevState: State
-  ): State => ({
+  updateState = (key: string, value: unknown) => (prevState: State): State => ({
     ...prevState,
     [key]: value,
   });
 
-  handleUpdateStateValue = (key: keyof State, value: number): void => {
+  handleUpdateStateValue = (key: string, value: unknown): void => {
     this.setState(this.updateState(key, value));
   };
 

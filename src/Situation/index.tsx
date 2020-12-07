@@ -11,7 +11,7 @@ type Props = {
   foldedStock: boolean;
   bipodNotBraced: boolean;
   bipodMount: boolean;
-  handleUpdateStateValue: Function;
+  handleUpdateStateValue: (key: string, stateValue: boolean) => void;
 };
 
 const Situation: React.FC<Props> = ({
@@ -22,7 +22,7 @@ const Situation: React.FC<Props> = ({
   bipodNotBraced,
   bipodMount,
   handleUpdateStateValue,
-}) => {
+}: Props) => {
   const renderCheckBox = (name: string, stateValue: boolean): JSX.Element => {
     return (
       <CheckBox

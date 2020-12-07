@@ -6,13 +6,13 @@ import './TargetSize.css';
 
 type Props = {
   targetSize: string;
-  handleUpdateStateValue: Function;
+  handleUpdateStateValue: (key: string, value: string) => void;
 };
 
 const TargetSize: React.FC<Props> = ({
   targetSize,
   handleUpdateStateValue,
-}) => {
+}: Props) => {
   const renderRadioButton = (targetType: string): JSX.Element => {
     return (
       <RadioButton

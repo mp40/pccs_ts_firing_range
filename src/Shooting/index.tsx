@@ -18,7 +18,7 @@ const Shooting: React.FC<Props> = ({
   stanceModifier,
   situationModifier,
   targetModifier,
-}) => {
+}: Props) => {
   const getTotalModifier = (): string => {
     const total =
       levelAndAimTimeModifier +

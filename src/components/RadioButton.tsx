@@ -8,15 +8,15 @@ type Props = {
   component: string;
   value: string;
   isActive: boolean;
-  handleUpdateStateValue: Function;
+  handleUpdateStateValue: (component: string, value: string) => void;
 };
 
 const RadioButton: React.FC<Props> = ({
   component,
   value,
   isActive,
-  handleUpdateStateValue
-}) => {
+  handleUpdateStateValue,
+}: Props) => {
   const getClassName = (): string => {
     return component === 'stance' ? 'stanceSelect' : 'selectTargetSize';
   };
